@@ -8,7 +8,7 @@ if (!isAdmin()) {
 $tasks = getAllTasks();
 ?>
 <h2>Admin Panel - All Tasks</h2>
-<table class="table table-bordered">
+<table id="taskTable" class="table table-bordered">
     <thead>
         <tr>
             <th>User</th>
@@ -26,7 +26,11 @@ $tasks = getAllTasks();
                 <td><?php echo htmlspecialchars($task['title']); ?></td>
                 <td><?php echo htmlspecialchars($task['deadline']); ?></td>
                 <td><?php echo htmlspecialchars($task['priority']); ?></td>
-                <td><?php echo htmlspecialchars($task['status']); ?></td>
+                <td>
+                    <button class="btn btn-sm btn-<?php echo $task['status'] === 'completed' ? 'success' : 'secondary'; ?> toggleStatus" data-id="<?php echo $task['id']; ?>" data-status="<?php echo $task['status']; ?>">
+                        <?php echo htmlspecialchars($task['status']); ?>
+                    </button>
+                </td>
                 <td>
                     <button class="btn btn-sm btn-danger deleteTask" data-id="<?php echo $task['id']; ?>">Delete</button>
                 </td>

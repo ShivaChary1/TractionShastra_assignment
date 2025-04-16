@@ -28,8 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    
+<h2 class="text-center mt-5">Register
+        <br>
+    <small class="h6 text-body-secondary">Task Collaboration App</small>
+    </h2>
     <div class="container mt-5">
-        <h2>Register</h2>
+   
         <?php if ($error): ?>
             <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>

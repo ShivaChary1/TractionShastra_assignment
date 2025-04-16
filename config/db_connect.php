@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db = 'task_app';
 $user = 'root';
-$pass = '';
+$pass = 'shivachary@17';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);

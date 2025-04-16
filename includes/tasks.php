@@ -1,6 +1,5 @@
-
 <?php
-require_once '../config/db_connect.php';
+require_once __DIR__ . '/../config/db_connect.php';
 
 function createTask($user_id, $title, $deadline, $priority) {
     global $pdo;
@@ -25,6 +24,12 @@ function updateTask($task_id, $user_id, $title, $deadline, $priority) {
     global $pdo;
     $stmt = $pdo->prepare("UPDATE tasks SET title = ?, deadline = ?, priority = ? WHERE id = ? AND user_id = ?");
     return $stmt->execute([$title, $deadline, $priority, $task_id, $user_id]);
+}
+
+function updateTaskStatus($task_id, $user_id, $status) {
+    global $pdo;
+    $stmt = $pdo->prepare("UPDATE tasks SET status = ? WHERE id = ? AND user_id = ?");
+    return $stmt->execute([$status, $task_id, $user_id]);
 }
 
 function deleteTask($task_id, $user_id = null) {
